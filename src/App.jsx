@@ -1,26 +1,24 @@
-import axios from 'axios'
-import { useEffect } from 'react'
+// Modules imports
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Routing
 
+// CSS imports
 import './App.css'
 
+// Pages imports
+import HomePage from "./pages/Home";
+import CharactersPage from "./pages/Characters";
+import ComicsPage from "./pages/Comics";
+
 function App() {
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://site--marvel-back--hcj2xjlwfzkm.code.run/comics");
-        console.log("data >>> ", response.data);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
-
-
   return (
     <>
-      <h1>Marvel app</h1>
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/characters" element={<CharactersPage />} />
+          <Route path="/comics" element={<ComicsPage />} />
+        </Routes>
+      </Router>
     </>
   )
 }
