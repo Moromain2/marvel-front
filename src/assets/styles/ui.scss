@@ -1,0 +1,11 @@
+/* === UI === */
+
+.button {
+    height: fit-content;
+    background-color: $color-bg;
+    color: $color-text;
+    border: none;
+    padding: .5em 1em;
+    font-family: $font-body;
+    font-weight: 500;
+}

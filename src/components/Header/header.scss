@@ -1,0 +1,110 @@
+/* === Header component CSS === */
+
+/* Variables import */
+@import "../../assets/styles/variables.scss";
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    @media (min-width: 1080px) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 1em;
+        left: 1em;
+    }
+
+    .mobile-header {
+        display: flex;
+        height: $size-header-height;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (min-width: 1080px) {
+            margin: 0;
+            padding-left: 0;
+        }
+
+        .logo {
+            svg {
+                width: 5em;
+                height: auto;
+            }
+        }
+
+        .navlinks-button {
+            svg {
+                height: 2em;
+            }
+
+            @media (min-width: 1080px) {
+                display: none;
+            }
+        }
+    }
+
+    .navigation {
+        @media (min-width: 1080px) {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+        }
+
+        .searchbox-container {
+            background-color: $color-dark-gray;
+            padding: 1em;
+        }
+
+        .navlinks {
+            background-color: $color-accent;
+            padding-top: 3em;
+            padding-bottom: 3em;
+            height: calc(100vh - $size-header-height);
+            transition: $transition;
+
+
+            ul {
+                @media (min-width: 1080px) {
+                    display: flex;
+                }
+
+                li {
+                    margin-bottom: 1em;
+                    font-size: 3em;
+                    font-weight: 700;
+                    font-family: $font-header;
+
+                    @media (min-width: 1080px) {
+                        font-size: 1em;
+                        margin-bottom: 0;
+                        margin-right: 1em;
+                    }
+
+                    &:last-of-type {
+                        margin-bottom: 0;
+
+                        @media (min-width: 1080px) {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .navlinks.hidden {
+            height: 0;
+            visibility: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+
+            @media (min-width: 1080px) {
+                all: unset;
+            }
+        }
+    }
+
+}

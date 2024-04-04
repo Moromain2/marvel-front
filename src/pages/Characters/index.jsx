@@ -21,16 +21,19 @@ const CharactersPage = () => {
             <h1>Chargement en cours...</h1>
         </>
     ) : (
-        <>
-            <h1>Personnages</h1>
-            <ul>
-                {characters.map((character) => {
-                    return (
-                        <li key={character._id}>{character.name}</li>
-                    )
-                })}
-            </ul>
-        </>
+        <div className="page-wrapper character-page-wrapper">
+            <div className="container">
+
+                <h1>Personnages</h1>
+                <ul>
+                    {characters.map((character) => {
+                        return (
+                            <li key={character._id}>{character.name}</li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </div>
     )
 }
 

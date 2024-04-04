@@ -1,0 +1,23 @@
+/* === CSS MODULES IMPORT === */
+@import "./assets/styles/variables.scss";
+@import "./assets/styles/ui.scss";
+
+/* === GLOBAL === */
+
+body {
+    background-color: $color-bg;
+    color: $color-text;
+    font-size: 16px;
+    font-family: $font-body;
+}
+
+/* === STRUCTURE === */
+.container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.page-wrapper {
+    margin-top: $size-header-height;
+}

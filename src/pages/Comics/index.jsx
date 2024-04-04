@@ -19,16 +19,18 @@ const ComicsPage = () => {
             <h1>Chargement en cours...</h1>
         </>
     ) : (
-        <>
-            <h1>Comics</h1>
-            <ul>
-                {comics.map((comic) => {
-                    return (
-                        <li key={comic._id}>{comic.title}</li>
-                    )
-                })}
-            </ul>
-        </>
+        <div className="page-wrapper comics-page-wrapper">
+            <div className="container">
+                <h1>Comics</h1>
+                <ul>
+                    {comics.map((comic) => {
+                        return (
+                            <li key={comic._id}>{comic.title}</li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </div>
     )
 }
 
