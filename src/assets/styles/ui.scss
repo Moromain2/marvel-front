@@ -5,7 +5,26 @@
     background-color: $color-bg;
     color: $color-text;
     border: none;
-    padding: .5em 1em;
+    padding: .5em;
     font-family: $font-body;
     font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 640px) {
+        &:hover {
+            background-color: $color-dark-gray;
+        }
+    }
+}
+
+.input-field {
+    background-color: $color-dark-gray;
+    border: none;
+    color: $color-text;
+    border-bottom: 1px solid $color-text;
+    font-size: 1em;
+    padding: .5em 0;
+    font-family: $font-body;
 }

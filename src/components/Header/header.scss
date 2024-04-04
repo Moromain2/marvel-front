@@ -7,15 +7,18 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    background-color: $color-bg;
 
     @media (min-width: 1080px) {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 0 1em;
-        left: 1em;
+        max-width: calc(1080px - 2em);
+        margin: 0;
+        padding: 0;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 1px solid $color-dark-gray;
     }
 
     .mobile-header {
@@ -26,7 +29,7 @@ header {
 
         @media (min-width: 1080px) {
             margin: 0;
-            padding-left: 0;
+            padding: 0;
         }
 
         .logo {
@@ -50,13 +53,45 @@ header {
     .navigation {
         @media (min-width: 1080px) {
             display: flex;
+            flex-direction: row-reverse;
             align-items: center;
-            gap: 1em;
+            gap: 2em;
         }
 
         .searchbox-container {
             background-color: $color-dark-gray;
             padding: 1em;
+
+            @media (min-width: 1080px) {
+                background-color: $color-bg;
+                border-left: 1px solid $color-dark-gray;
+                padding-left: 2em;
+                height: $size-header-height;
+
+                .input-field {
+                    background-color: $color-bg;
+                }
+            }
+
+            form {
+                display: flex;
+                gap: 1em;
+                align-items: center;
+
+                .input-field {
+                    width: 100%;
+                }
+
+                .button {
+                    @media (min-width: 1080px) {
+                        background-color: $color-dark-gray;
+                    }
+
+                    svg {
+                        height: 2em;
+                    }
+                }
+            }
         }
 
         .navlinks {
