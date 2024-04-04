@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react' // State management
 // Utils functions imports
 import fetchData from "../../utils/fetchData";
 
+// Components imports
+import Loader from "../../components/Loader";
+import Card from "../../components/Card";
+
 const ComicsPage = () => {
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -15,20 +19,24 @@ const ComicsPage = () => {
     const comics = pageData?.results;
 
     return isLoading ? (
-        <>
-            <h1>Chargement en cours...</h1>
-        </>
+        <Loader />
     ) : (
         <div className="page-wrapper comics-page-wrapper">
             <div className="container">
                 <h1>Comics</h1>
-                <ul>
+                <div className="grid-container">
                     {comics.map((comic) => {
+                        console.log(comic);
                         return (
-                            <li key={comic._id}>{comic.title}</li>
+                            <Card
+                                key={comic._id}
+                                title={comic.title}
+                                image_url={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                                path={"/comic/" + comic._id}
+                            />
                         )
                     })}
-                </ul>
+                </div>
             </div>
         </div>
     )

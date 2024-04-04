@@ -1,0 +1,33 @@
+/* === Card component CSS === */
+
+/* Variables import */
+@import "../../assets/styles/variables.scss";
+
+.card {
+    margin-bottom: 1em;
+    box-shadow: $box-shadow;
+    transition: $transition;
+    border-bottom: 1em solid $color-accent;
+
+    @media (min-width: 640px) {
+        &:hover {
+            box-shadow: $box-shadow-hover;
+        }
+    }
+
+    .image-container {
+        width: 100%;
+
+        img {
+            height: 20em;
+        }
+    }
+
+    .body-container {
+        padding: 1em 1em 3em;
+
+        h2 {
+            font-size: 2em;
+        }
+    }
+}

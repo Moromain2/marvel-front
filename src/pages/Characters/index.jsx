@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react' // State management
 // Utils functions imports
 import fetchData from "../../utils/fetchData";
 
+// Components imports
+import Loader from "../../components/Loader";
+import Card from "../../components/Card";
+
 const CharactersPage = () => {
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
@@ -17,21 +21,23 @@ const CharactersPage = () => {
     const characters = pageData?.results;
 
     return isLoading ? (
-        <>
-            <h1>Chargement en cours...</h1>
-        </>
+        <Loader />
     ) : (
         <div className="page-wrapper character-page-wrapper">
             <div className="container">
-
                 <h1>Personnages</h1>
-                <ul>
+                <div className="grid-container">
                     {characters.map((character) => {
                         return (
-                            <li key={character._id}>{character.name}</li>
+                            <Card
+                                key={character._id}
+                                title={character.name}
+                                image_url={character.thumbnail.path + "." + character.thumbnail.extension}
+                                path={"/character/" + character._id}
+                            />
                         )
                     })}
-                </ul>
+                </div>
             </div>
         </div>
     )

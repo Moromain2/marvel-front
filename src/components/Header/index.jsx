@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <header>
             <div className="mobile-header container">
-                <Link onClick={() => { setMenuOpen(!menuOpen) }} to="/" className="logo">
+                <Link onClick={() => { setMenuOpen(false) }} to="/" className="logo">
                     <MarvelLogo />
                 </Link>
                 <button

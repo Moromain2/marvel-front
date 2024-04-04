@@ -11,6 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: $transition;
 
     @media (min-width: 640px) {
         &:hover {

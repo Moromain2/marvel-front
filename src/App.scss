@@ -52,3 +52,28 @@ h4 {
         margin-top: calc($size-header-height + 2em);
     }
 }
+
+.image-container {
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
+.grid-container {
+    @media (min-width: 640px) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        a {
+            width: calc(50% - 1em);
+        }
+    }
+
+    @media (min-width: 1080px) {
+        a {
+            width: calc(33.33% - 2em);
+        }
+    }
+}
