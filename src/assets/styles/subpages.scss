@@ -1,0 +1,32 @@
+/* === Subpages === */
+
+.sub-page-title {
+    color: $color-accent;
+    font-size: 3em;
+    margin-bottom: .25em;
+}
+
+#hero {
+    margin-bottom: 1em;
+}
+
+.hero-image {
+    height: 20em;
+
+    @media (min-width: 640px) {
+        height: 30em;
+    }
+
+    @media (min-width: 1080px) {
+        height: 40em;
+
+    }
+}
+
+#body div {
+    margin-bottom: 2em;
+
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}

@@ -17,33 +17,35 @@ const Header = () => {
 
     return (
         <header>
-            <div className="mobile-header container">
-                <Link onClick={() => { setMenuOpen(false) }} to="/" className="logo">
-                    <MarvelLogo />
-                </Link>
-                <button
-                    onClick={() => { setMenuOpen(!menuOpen) }}
-                    className="button navlinks-button">
-                    {menuOpen ? <CloseIcon /> : <BurgerIcon />}
-                </button>
-            </div>
-            <div className="navigation">
-                <div className="searchbox-container">
-                    <form>
-                        <input className="input-field" type="text" placeholder="Rechercher" />
-                        <button className="button">
-                            <ManifyingGlassIcon />
-                        </button>
-                    </form>
+            <div className="header-wrapper">
+                <div className="mobile-header container">
+                    <Link onClick={() => { setMenuOpen(false) }} to="/" className="logo">
+                        <MarvelLogo />
+                    </Link>
+                    <button
+                        onClick={() => { setMenuOpen(!menuOpen) }}
+                        className="button navlinks-button">
+                        {menuOpen ? <CloseIcon /> : <BurgerIcon />}
+                    </button>
                 </div>
-                <nav className={menuOpen ? "navlinks container" : "navlinks hidden container"}>
-                    <ul>
-                        <li><Link onClick={() => { setMenuOpen(false) }} to="/">Accueil</Link></li>
-                        <li><Link onClick={() => { setMenuOpen(false) }} to="/comics">Les comics Marvel</Link></li>
-                        <li><Link onClick={() => { setMenuOpen(false) }} to="/characters">Les héros Marvel</Link></li>
-                        <li><Link onClick={() => { setMenuOpen(false) }} to="/favorites">Vos héros favoris</Link></li>
-                    </ul>
-                </nav>
+                <div className="navigation">
+                    <div className="searchbox-container">
+                        <form>
+                            <input className="input-field" type="text" placeholder="Rechercher" />
+                            <button className="button">
+                                <ManifyingGlassIcon />
+                            </button>
+                        </form>
+                    </div>
+                    <nav className={menuOpen ? "navlinks container" : "navlinks hidden container"}>
+                        <ul>
+                            <li><Link onClick={() => { setMenuOpen(false) }} to="/">Accueil</Link></li>
+                            <li><Link onClick={() => { setMenuOpen(false) }} to="/comics">Les comics Marvel</Link></li>
+                            <li><Link onClick={() => { setMenuOpen(false) }} to="/characters">Les héros Marvel</Link></li>
+                            <li><Link onClick={() => { setMenuOpen(false) }} to="/favorites">Vos héros favoris</Link></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </header>
     )

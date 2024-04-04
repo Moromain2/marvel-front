@@ -2,7 +2,7 @@ import "../../styles/variables.scss"
 
 const MarvelLogo = ({ fill_color }) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="1000px" height="402.473px" viewBox="-215.19 -86.608 1000 402.473" enable-background="new -215.19 -86.608 1000 402.473" xml:space="preserve">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="1000px" height="402.473px" viewBox="-215.19 -86.608 1000 402.473" enableBackground="new -215.19 -86.608 1000 402.473" xmlSpace="preserve">
             <g>
                 <rect x="-215.19" y="-86.608" fill={fill_color ? fill_color : "#E5242A"} width="1000" height="402.473" />
                 <g>

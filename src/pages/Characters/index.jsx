@@ -9,6 +9,7 @@ import Loader from "../../components/Loader";
 import Card from "../../components/Card";
 
 const CharactersPage = () => {
+    // Data and loading states are passed as arguments to the fetchData function which updates them
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
@@ -28,6 +29,7 @@ const CharactersPage = () => {
                 <h1>Personnages</h1>
                 <div className="grid-container">
                     {characters.map((character) => {
+                        console.log(character);
                         return (
                             <Card
                                 key={character._id}

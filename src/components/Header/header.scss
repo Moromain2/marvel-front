@@ -8,17 +8,18 @@ header {
     top: 0;
     width: 100%;
     background-color: $color-bg;
+    border-bottom: 1px solid $color-dark-gray;
 
-    @media (min-width: 1080px) {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: calc(1080px - 2em);
-        margin: 0;
-        padding: 0;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        border-bottom: 1px solid $color-dark-gray;
+    .header-wrapper {
+        @media (min-width: 1080px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: calc(1080px - 2em);
+            margin: 0;
+            padding: 0;
+            margin: auto;
+        }
     }
 
     .mobile-header {
@@ -116,7 +117,15 @@ header {
                     @media (min-width: 1080px) {
                         font-size: 1em;
                         margin-bottom: 0;
-                        margin-right: 1em;
+                        margin-right: 2em;
+
+                        a {
+                            transition: $transition;
+
+                            &:hover {
+                                color: $color-accent;
+                            }
+                        }
                     }
 
                     &:last-of-type {

@@ -30,4 +30,21 @@
             font-size: 2em;
         }
     }
+
+    &.card-small {
+        .image-container {
+
+            img {
+                height: 15em;
+            }
+        }
+
+        .body-container {
+            padding: 1em;
+
+            h2 {
+                font-size: 1.5em;
+            }
+        }
+    }
 }

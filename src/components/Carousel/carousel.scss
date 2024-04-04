@@ -1,0 +1,15 @@
+/* === Carousel component CSS === */
+
+/* Variables import */
+@import "../../assets/styles/variables.scss";
+
+.carousel {
+    display: flex;
+    gap: .5em;
+    overflow-x: scroll;
+    scrollbar-width: none;
+
+    a {
+        min-width: 10em;
+    }
+}

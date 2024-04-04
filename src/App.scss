@@ -1,6 +1,7 @@
 /* === CSS MODULES IMPORT === */
 @import "./assets/styles/variables.scss";
 @import "./assets/styles/ui.scss";
+@import "./assets/styles/subpages.scss";
 
 /* === GLOBAL === */
 
@@ -46,10 +47,11 @@ h4 {
 }
 
 .page-wrapper {
-    margin-top: calc($size-header-height + 6em);
+    padding-top: calc($size-header-height + 6em);
+    padding-bottom: 5em;
 
     @media (min-width: 1080px) {
-        margin-top: calc($size-header-height + 2em);
+        padding-top: calc($size-header-height + 2em);
     }
 }
 
