@@ -29,11 +29,11 @@ const CharactersPage = () => {
                 <h1>Personnages</h1>
                 <div className="grid-container">
                     {characters.map((character) => {
-                        console.log(character);
                         return (
                             <Card
                                 key={character._id}
                                 title={character.name}
+                                body={character.description}
                                 image_url={character.thumbnail.path + "." + character.thumbnail.extension}
                                 path={"/character/" + character._id}
                             />

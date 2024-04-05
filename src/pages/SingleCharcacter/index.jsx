@@ -18,17 +18,14 @@ const SingleCharacterPage = () => {
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
-    console.log(characterId);
-
     // Data fetching for character
     useEffect(() => {
         // Fectching character info
         fetchData(setPageData, setIsLoading, `/comics/${characterId}`);
     }, []);
 
+    // `pageData` assignement to `character` variable 
     const character = pageData;
-
-    console.log(pageData);
 
     return isLoading ? (
         <Loader />
@@ -56,24 +53,26 @@ const SingleCharacterPage = () => {
                         }
                     </div>
                 </div>
-                <div className="comics-list">
-                    <div className="container">
-                        <h2>Comics avec {character.name}</h2>
-                        <Carousel>
-                            {character.comics.map((comic) => {
-                                return (
-                                    <Card
-                                        key={comic._id}
-                                        title={comic.title}
-                                        image_url={comic.thumbnail.path + "." + comic.thumbnail.extension}
-                                        path={`/comic/${comic._id}`}
-                                        card_size="small"
-                                    />
-                                )
-                            })}
-                        </Carousel>
+                {character.comics[0] && // If the character has a comics list
+                    <div className="comics-list">
+                        <div className="container">
+                            <h2>Comics avec {character.name}</h2>
+                            <Carousel>
+                                {character.comics.map((comic) => {
+                                    return (
+                                        <Card
+                                            key={comic._id}
+                                            title={comic.title}
+                                            image_url={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                                            path={`/comic/${comic._id}`}
+                                            card_size="small"
+                                        />
+                                    )
+                                })}
+                            </Carousel>
+                        </div>
                     </div>
-                </div>
+                }
             </section>
         </div>
     )
