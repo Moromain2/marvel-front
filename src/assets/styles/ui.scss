@@ -16,6 +16,7 @@
     @media (min-width: 640px) {
         &:hover {
             background-color: $color-dark-gray;
+            cursor: pointer;
         }
     }
 }
@@ -28,4 +29,22 @@
     font-size: 1em;
     padding: .5em 0;
     font-family: $font-body;
+}
+
+.page-navigation {
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2em;
+
+        .button {
+            background-color: $color-accent;
+            padding: 1em;
+        }
+    }
+
+    .page-count {
+        text-align: center;
+        color: $color-light-gray
+    }
 }
