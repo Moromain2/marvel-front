@@ -1,6 +1,5 @@
 // Modules imports
 import { useState, useEffect } from 'react' // State management
-import { useParams } from 'react-router-dom'; // Routing
 
 // Utils functions imports
 import fetchData from "../../utils/fetchData";
@@ -8,6 +7,7 @@ import fetchData from "../../utils/fetchData";
 // Components imports
 import Loader from "../../components/Loader";
 import Card from "../../components/Card";
+import Pagination from "../../components/Pagination";
 
 const CharactersPage = () => {
     // Data and loading states are passed as arguments to the fetchData function which updates them
@@ -22,27 +22,12 @@ const CharactersPage = () => {
         name: "",
     })
 
-    // WIP
-    const handlePagination = (action) => {
-        let displayClone = { ...display };
-        if (action === "next") {
-            displayClone.skip += displayClone.limit
-            displayClone.currentPage++;
-        } else if (action === "previous") {
-            displayClone.skip -= displayClone.limit
-            displayClone.currentPage--;
-        }
-        console.log(display);
-        setDisplay(displayClone);
-        fetchData(setPageData, setIsLoading, `/characters?limit=${display.limit}&skip=${display.skip}&name=${display.name}`);
-
-    }
-
-    // Data fetching for characters page
+    // Data fetching when characters page component renders
     useEffect(() => {
         fetchData(setPageData, setIsLoading, `/characters?limit=${display.limit}&skip=${display.skip}&name=${display.name}`);
-    }, []);
+    }, [display]); // Display object is passed as a dependency of the use effect function
 
+    // Character variable is assigned to the API call results
     const characters = pageData?.results;
 
     return isLoading ? (
@@ -65,23 +50,7 @@ const CharactersPage = () => {
                     })}
                 </div>
             </div>
-            <div className="container page-navigation">
-                <div className="buttons">
-                    <button className='button'
-                        onClick={() => { handlePagination("previous") }}
-                    >
-                        Page précédente
-                    </button>
-                    <button className='button'
-                        onClick={() => { handlePagination("next") }}
-                    >
-                        Page suivante
-                    </button>
-                </div>
-                <p className="page-count">
-                    You are on page {display.currentPage} / {Math.ceil(pageData.count / display.limit)}
-                </p>
-            </div>
+            <Pagination display={display} setDisplay={setDisplay} pageData={pageData} fetchData={fetchData} setPageData={setPageData} setIsLoading={setIsLoading} />
         </div>
     )
 }

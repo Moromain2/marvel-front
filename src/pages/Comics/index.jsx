@@ -7,15 +7,27 @@ import fetchData from "../../utils/fetchData";
 // Components imports
 import Loader from "../../components/Loader";
 import Card from "../../components/Card";
+import Pagination from "../../components/Pagination";
 
 const ComicsPage = () => {
+    // Data and loading states are passed as arguments to the fetchData function which updates them
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        fetchData(setPageData, setIsLoading, "/comics");
-    }, []);
+    // Setting a display object with a default state set the API querries
+    const [display, setDisplay] = useState({
+        limit: 100,
+        skip: 0,
+        currentPage: 1,
+        title: "",
+    })
 
+    // Data fetching when comics page component renders
+    useEffect(() => {
+        fetchData(setPageData, setIsLoading, `/comics?limit=${display.limit}&skip=${display.skip}&title=${display.title}`);
+    }, [display]); // Display object is passed as a dependency of the use effect function
+
+    // Comics variable is assigned to the API call results
     const comics = pageData?.results;
 
     return isLoading ? (
@@ -38,6 +50,7 @@ const ComicsPage = () => {
                     })}
                 </div>
             </div>
+            <Pagination display={display} setDisplay={setDisplay} pageData={pageData} fetchData={fetchData} setPageData={setPageData} setIsLoading={setIsLoading} />
         </div>
     )
 }

@@ -29,6 +29,18 @@
         h2 {
             font-size: 2em;
         }
+
+        .button {
+            background-color: $color-accent;
+        }
+
+        .description {
+            margin-top: 1em;
+        }
+
+        .description.hidden {
+            display: none;
+        }
     }
 
     &.card-small {
