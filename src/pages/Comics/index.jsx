@@ -9,10 +9,12 @@ import Loader from "../../components/Loader";
 import Card from "../../components/Card";
 import Pagination from "../../components/Pagination";
 
-const ComicsPage = () => {
+const ComicsPage = ({ search }) => {
     // Data and loading states are passed as arguments to the fetchData function which updates them
     const [pageData, setPageData] = useState();
     const [isLoading, setIsLoading] = useState(true);
+
+    console.log("search >>> ", search);
 
     // Setting a display object with a default state set the API querries
     const [display, setDisplay] = useState({
@@ -24,6 +26,7 @@ const ComicsPage = () => {
 
     // Data fetching when comics page component renders
     useEffect(() => {
+        console.log("comics page renders");
         fetchData(setPageData, setIsLoading, `/comics?limit=${display.limit}&skip=${display.skip}&title=${display.title}`);
     }, [display]); // Display object is passed as a dependency of the use effect function
 
@@ -38,7 +41,6 @@ const ComicsPage = () => {
                 <h1>Comics</h1>
                 <div className="grid-container">
                     {comics.map((comic) => {
-                        console.log(comic);
                         return (
                             <Card
                                 key={comic._id}

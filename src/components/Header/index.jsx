@@ -1,6 +1,6 @@
 /* Modules imports */
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 /* Header component CSS import */
 import "./header.scss";
@@ -11,9 +11,26 @@ import BurgerIcon from "../../assets/images/vectors/BurgerIcon";
 import CloseIcon from "../../assets/images/vectors/CloseIcon";
 import ManifyingGlassIcon from "../../assets/images/vectors/ManifyingGlassIcon";
 
-const Header = () => {
+const Header = ({ setSearch, search }) => {
     // Mobile menu state
     const [menuOpen, setMenuOpen] = useState(false);
+
+    // Showing search bar only on the relevant pages
+    const [showSearchBar, setShowSearchBar] = useState(false);
+    useEffect(() => {
+        const pagePath = window.location.href;
+        if (pagePath.includes("/comics") || pagePath.includes("/characters")) {
+            setShowSearchBar(true);
+        } else {
+            setShowSearchBar(false);
+        }
+    });
+
+    const handleSearch = (e) => {
+        let searchValue = e.target.value;
+        setSearch(searchValue);
+    }
+
 
     return (
         <header>
@@ -29,14 +46,16 @@ const Header = () => {
                     </button>
                 </div>
                 <div className="navigation">
-                    <div className="searchbox-container">
-                        <form>
-                            <input className="input-field" type="text" placeholder="Rechercher" />
-                            <button className="button">
-                                <ManifyingGlassIcon />
-                            </button>
-                        </form>
-                    </div>
+                    {showSearchBar &&
+                        <div className="searchbox-container">
+                            <form>
+                                <input onChange={(e) => { handleSearch(e) }} className="input-field" type="text" placeholder="Rechercher" />
+                                <button className="button">
+                                    <ManifyingGlassIcon />
+                                </button>
+                            </form>
+                        </div>
+                    }
                     <nav className={menuOpen ? "navlinks container" : "navlinks hidden container"}>
                         <ul>
                             <li><Link onClick={() => { setMenuOpen(false) }} to="/">Accueil</Link></li>
